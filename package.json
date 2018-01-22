@@ -10,6 +10,7 @@
     "prod": "webpack --config webpack.config.prod.js --env=prod && npm run node-server ",
     "node-server": "nodemon server",
     "start": "npm run test && npm-run-all --parallel webpack-server node-server",
+    "site" : "npm run test && npm run buildProd && npm run node-server",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
