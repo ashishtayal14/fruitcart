@@ -1,4 +1,4 @@
-# STARWARS
+# FRUIT CART
 
 Steps to run on Local
 1) Take to clone of this repository
