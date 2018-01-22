@@ -8,6 +8,7 @@ Steps to run on Local
 5) Run "npm run site"
 
 Public Url :
+https://fruitcarts.herokuapp.com
 
 
 
