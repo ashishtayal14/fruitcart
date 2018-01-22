@@ -1,18 +1,19 @@
-var express = require('express')
-var path = require('path')
+var express = require('express');
+var path = require('path');
 var fs = require("fs");
-var _ = require("lodash")
-
 const app = express();
 const HttpStatus = require('http-status-codes');
-app.use(express.static('./src/assets/images'));
+
+// app.use(express.static('./src/assets/images'));
+
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+//   next();
+// });
+
 app.use(express.static('./build'));
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  next();
-});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, './build/index.html'));
@@ -25,7 +26,6 @@ app.get('/detail/:id', function (req, res) {
 app.get('/checkout', function (req, res) {
   res.sendFile(path.join(__dirname, './build/index.html'));
 });
-
 
 app.get('/products', function (req, res) {
   fs.readFile("src/assets/json/fruits.json", 'utf-8', (error, data) => {
@@ -43,14 +43,9 @@ app.get('/products', function (req, res) {
   });
 });
 
-let port = process.env.PORT || 3000;
-
-
-app.listen(port, function (error) {
-  console.log(`server running at http://localhost:${port}`);
-  if (error) {
-    throw err
-  }
+let port = process.env.PORT || 1300;
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
 });
 
 
